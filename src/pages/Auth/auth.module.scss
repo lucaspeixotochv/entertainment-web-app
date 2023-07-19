@@ -1,0 +1,100 @@
+@import '/src/styles/breakpoints';
+@import '/src/styles/variables';
+
+.authContainer {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: $dark-blue;
+    min-height: 100vh;
+    align-items: center;
+    box-sizing: border-box;
+
+    @media screen and (min-width: $md) {
+        padding: 4rem;
+    }
+}
+
+.container {
+    background-color: $blue;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 100%;
+    max-width: 400px;
+
+    @media screen and (min-width: $md) {
+        padding: 2rem;
+    }
+
+    &__title {
+        font-size: 2rem;
+        color: $white;
+        
+    }
+
+    &__passwordContainer {
+        display: flex;
+        position: relative;
+
+        button {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        input {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            padding:1rem;
+            border-bottom: 1px solid $secondary;
+            color: $teartiary;
+            flex: 1;
+            
+            &:focus {
+                border-color: $primary;
+            }
+
+            &::placeholder {
+                color: $teartiary;
+            }
+        }
+
+        &__btn {
+            background-color: $primary;
+            border: none;
+            padding: 1rem 0;
+            border-radius: 0.5rem;
+            color: $white;
+        }
+    }
+}
+
+.callContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: $white;
+    margin-top: 1rem;
+
+    &__page {
+        color: $primary;
+        text-decoration: none;
+    }
+}
+
+.errorMsg {
+    color: $primary;
+}
