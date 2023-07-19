@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import S from "../auth.module.scss";
 import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -6,6 +6,10 @@ import { auth } from "../../../config/firebase";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Loading from "../../../components/Loading";
+import {
+  EmptyValidation,
+  passwordValidation,
+} from "../../../utils/authValidations";
 
 function Register() {
   const navigate = useNavigate();
@@ -34,8 +38,8 @@ function Register() {
       message: [],
     });
 
-    const emptyValid = EmptyValidation();
-    const passwordValid = passwordValidation();
+    const emptyValid = EmptyValidation(form, setError);
+    const passwordValid = passwordValidation(form, setError);
 
     if (emptyValid && passwordValid) {
       createUserWithEmailAndPassword(auth, form.email, form.password.value)
@@ -48,36 +52,6 @@ function Register() {
         .catch((error) => {
           console.log(error);
         });
-    }
-  };
-
-  const passwordValidation = () => {
-    if (form.password.value !== form.repassword.value) {
-      setError((prevState) => ({
-        ...prevState,
-        state: true,
-        message: [...prevState.message, "Mismatched passwords"],
-      }));
-      return false;
-    } else {
-      return true;
-    }
-  };
-
-  const EmptyValidation = () => {
-    if (
-      form.email.trim().length === 0 ||
-      form.password.value.trim().length === 0 ||
-      form.repassword.value.trim().length === 0
-    ) {
-      setError((prevState) => ({
-        ...prevState,
-        state: true,
-        message: [...prevState.message, "All fields must be filled!"],
-      }));
-      return false;
-    } else {
-      return true;
     }
   };
   return (
