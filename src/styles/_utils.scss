@@ -1,0 +1,9 @@
+@import './breakpoints';
+
+@mixin padding {
+    padding: 1rem;
+
+    @media screen and (min-width: $md) {
+        padding: 2rem;
+    }
+}

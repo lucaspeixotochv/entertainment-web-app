@@ -1,0 +1,55 @@
+@import '/src/styles/breakpoints';
+@import '/src/styles/variables';
+
+.navbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: $dark-blue;
+
+    @media screen and (min-width: $lg) {
+        flex-direction: column;
+        justify-content: start;
+        max-height: 960px;
+        border-radius: 0.75rem;    
+    }
+
+    .image {
+        width: 25px;
+        height: 20px;
+    }
+
+    .list {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        list-style: none;
+
+        @media screen and (min-width: $lg) {
+            flex-direction: column;
+            padding: 0;
+            margin-top: 3rem;
+        }
+
+        .btn {
+            background-color: transparent;
+            border: none;
+            text-decoration: none;
+
+            .icon {
+                cursor: pointer;
+            }
+        }
+        
+    }
+
+    .logoutBtn {
+        background-color: transparent;
+        border: none;
+
+        @media screen and (min-width: $lg) {
+                margin-top: auto;
+            }
+    }
+}

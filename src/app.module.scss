@@ -1,0 +1,53 @@
+@import './styles/breakpoints';
+@import './styles/variables';
+@import './styles/utils';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: $blue;
+
+    @media screen and (min-width: $lg) {
+        flex-direction: row;
+        @include padding;
+    }
+}
+
+.appContainer {
+    flex:1; 
+
+    .formContainer {
+    @include padding;
+
+    form {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background-color: $dark-blue;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+
+        button {
+            margin: 0 0.5rem;
+            background-color: transparent;
+            border: none;
+        }
+
+        input {
+            flex: 1;
+            padding: 1rem 0.5rem;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            color: $secondary;
+            
+            &::placeholder{
+                color: $secondary;
+                
+            }
+        }
+    }
+}
+}
