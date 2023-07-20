@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Data } from "../types/Data.types";
 
 export const featchFilteredData = async (
