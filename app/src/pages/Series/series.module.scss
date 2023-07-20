@@ -1,0 +1,142 @@
+@import '../../styles/utils';
+@import '../../styles/breakpoints';
+@import '../../styles/variables';
+
+@media screen and (min-width: $lg) {
+    .swiperContainer {
+        width: 100%;
+        max-width: calc(100vw - (7.5rem)); /* Adjust the max-width as needed */
+      }
+}
+
+
+.swiperSlide {
+    width: 240px;
+    height: 140px;
+    position: relative;
+    cursor: pointer;
+    
+    @media screen and (min-width: $md) {
+        width: 470px;
+        height: 230px;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0.5rem;
+
+        @media screen and (min-width: $md) {
+            object-fit: cover;
+            object-position: bottom;
+        }
+    }
+
+    &__text {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        
+        &__container {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: $teartiary;
+            margin-bottom: 0.5rem;
+
+            p {
+                margin: 0;
+            }
+        }
+
+        h3 {
+            margin: 0;
+            padding: 0;
+            color: $white;
+        }
+    }
+
+    &__bookMark {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.padding {
+    @include padding;
+}
+
+.mainCotainer {
+    @include padding;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        flex-grow: 1;
+        margin: 1rem 0 2rem 0;
+    
+        @media screen and (min-width: $md) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+    
+        @media screen and (min-width: $lg) {
+            grid-template-columns: repeat(4,1fr);
+            gap: 2.5rem;
+        }
+
+        &__item {
+            position: relative;
+            cursor: pointer;
+
+            img{
+                border-radius: 0.5rem;
+                width: 100%;
+                object-fit: contain;
+            }
+        
+            p {
+                font-size: 0.8rem;
+            }
+
+            &__container {
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+                color: $teartiary;
+            }
+
+            h3 {
+                color: $white;
+                margin: 0;
+                font-weight: 400;
+            }
+
+            &__bookMark{
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                background-color: rgba($color: #000000, $alpha: 0.5);
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}

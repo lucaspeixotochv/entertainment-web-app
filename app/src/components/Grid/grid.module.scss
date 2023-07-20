@@ -1,0 +1,62 @@
+@import '../../styles/breakpoints';
+@import '../../styles/variables';
+@import '../../styles/utils';
+
+.mainCotainer__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    flex-grow: 1;
+    margin: 1rem 0 2rem 0;
+
+    @media screen and (min-width: $md) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    @media screen and (min-width: $lg) {
+        grid-template-columns: repeat(4,1fr);
+        gap: 2.5rem;
+    }
+
+    &__item {
+        position: relative;
+        cursor: pointer;
+
+        img{
+            border-radius: 0.5rem;
+            width: 100%;
+            object-fit: contain;
+        }
+    
+        p {
+            font-size: 0.8rem;
+        }
+
+        &__container {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: $teartiary;
+        }
+
+        h3 {
+            color: $white;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        &__bookMark{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background-color: rgba($color: #000000, $alpha: 0.5);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
