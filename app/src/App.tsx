@@ -1,5 +1,4 @@
 import { useContext, useState, useEffect } from "react";
-import { AuthContext } from "./context/Auth/AuthContext.tsx";
 import NavBar from "./components/NavBar/index.tsx";
 import "normalize-css";
 import "./index.css";
@@ -9,8 +8,7 @@ import { FaSearch } from "react-icons/fa";
 import SearchContext from "./context/Search/SearchContext.tsx";
 
 function App() {
-  const { currentUser } = useContext(AuthContext);
-  const { searchValue, setSearchValue } = useContext(SearchContext);
+  const { setSearchValue } = useContext(SearchContext);
 
   const location = useLocation();
   const { pathname } = location;
