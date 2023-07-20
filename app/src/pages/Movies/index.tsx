@@ -16,7 +16,7 @@ function Movies() {
     const featchData = async () => {
       try {
         const { data } = await axios.get(
-          "https://raw.githubusercontent.com/lucaspeixotochv/entertainment-web-api/main/data.json"
+          "https://raw.githubusercontent.com/lucaspeixotochv/entertainment-web-app/main/api/data.json"
         );
         const movies = data.filter((item: Data) => item.category === "Movie");
         setData(movies);

@@ -16,7 +16,7 @@ function Series() {
     const featchData = async () => {
       try {
         const { data } = await axios.get(
-          "https://raw.githubusercontent.com/lucaspeixotochv/entertainment-web-api/main/data.json"
+          "https://raw.githubusercontent.com/lucaspeixotochv/entertainment-web-app/main/api/data.json"
         );
         const series = data.filter(
           (item: Data) => item.category === "TV Series"

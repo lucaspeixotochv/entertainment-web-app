@@ -26,7 +26,7 @@ function Home() {
     const featchData = async () => {
       try {
         const { data } = await axios.get(
-          "https://raw.githubusercontent.com/lucaspeixotochv/entertainment-web-api/main/data.json"
+          "https://raw.githubusercontent.com/lucaspeixotochv/entertainment-web-app/main/api/data.json"
         );
         const trendingData = data.filter(
           (item: Data) => item.isTrending === true

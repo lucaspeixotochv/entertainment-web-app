@@ -26,7 +26,7 @@ function BookMarked() {
     const featchData = async () => {
       try {
         const res = await axios.get(
-          "https://raw.githubusercontent.com/lucaspeixotochv/entertainment-web-api/main/data.json"
+          "https://raw.githubusercontent.com/lucaspeixotochv/entertainment-web-app/main/api/data.json"
         );
         const data = res.data.filter((item: Data) => item.isBookmarked);
         const movies = data.filter(
