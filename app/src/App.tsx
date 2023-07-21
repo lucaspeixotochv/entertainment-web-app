@@ -5,6 +5,7 @@ import "./index.css";
 import S from "./app.module.scss";
 import { Outlet, useLocation } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import { BsArrowUp } from "react-icons/bs";
 import SearchContext from "./context/Search/SearchContext.tsx";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
   const location = useLocation();
   const { pathname } = location;
   const [search, setSearch] = useState("");
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   useEffect(() => {
     switch (pathname) {
@@ -34,10 +36,36 @@ function App() {
     }
   }, [pathname]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollSize = 200;
+      if (window.scrollY > scrollSize) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className={S.container}>
       <NavBar />
       <div className={S.appContainer}>
+        <button
+          className={S.appContainer__scrollBtn}
+          onClick={scrollToTop}
+          style={{ display: showScrollButton ? "block" : "none" }}
+        >
+          <BsArrowUp size={24} color="white" />
+        </button>
         <div className={S.formContainer}>
           <form>
             <button>

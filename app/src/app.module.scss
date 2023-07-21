@@ -17,6 +17,22 @@
 
 .appContainer {
     flex:1; 
+    position: relative;
+
+    &__scrollBtn {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        z-index: 10;
+        border: none;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        background-color: $dark-blue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     .formContainer {
     @include padding;
